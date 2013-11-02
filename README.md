@@ -3,6 +3,9 @@ win-tabcontrol
 
 A Tab/Pivot control for windows store apps, similar to the one used in the windows store
 
+Link to download binary version of the control:
+https://github.com/mikezliu/win-tabcontrol/raw/master/Binaries/Peeksoft.Win.TabControl.dll
+
 Sample XAML usage:
 
     ...
