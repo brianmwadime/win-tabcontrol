@@ -18,13 +18,12 @@
         <StackPanel
             Orientation="Horizontal"
             x:Name="ButtonPanel" />
-        
+
         <FlipView
             Grid.Row="1"
             ItemsSource="{Binding Tabs}"
             SelectionChanged="FlipView_SelectionChanged"
             x:Name="FlipView">
-            
         </FlipView>
     </Grid>
 </UserControl>

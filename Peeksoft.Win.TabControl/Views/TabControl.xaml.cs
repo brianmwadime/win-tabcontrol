@@ -39,8 +39,8 @@ namespace Peeksoft.Win.TabControl
             // TODO: make label configurable
             TextBlock label = new TextBlock();
             label.Text = tab.Name;
-            label.FontSize = 36;
-            label.Margin = new Thickness(20);
+            label.FontSize = 25;
+            label.Margin = new Thickness(10);
             label.Foreground = new SolidColorBrush(Colors.DimGray);
             label.Tapped += label_Tapped;
             ButtonPanel.Children.Add(label);
@@ -64,11 +64,10 @@ namespace Peeksoft.Win.TabControl
             if (label != null)
             {
                 int index = ButtonPanel.Children.IndexOf(label);
-                if (index != -1 &&
-                    index != FlipView.SelectedIndex)
-                {
+               if (index != -1 && index != FlipView.SelectedIndex)
+               {
                     FlipView.SelectedIndex = index;
-                }
+               }
             }
         }
 
@@ -82,19 +81,26 @@ namespace Peeksoft.Win.TabControl
                     text.Foreground = new SolidColorBrush(Colors.DimGray);
                 }
             }
-
-            TextBlock label = ButtonPanel.Children[FlipView.SelectedIndex] as TextBlock;
-            if (label != null)
+            // Added check for selected Item index. Fixes index OutOfRange Exception
+            if (FlipView.SelectedIndex != -1)
             {
-                label.Foreground = new SolidColorBrush(Colors.White);
+                TextBlock label = ButtonPanel.Children[FlipView.SelectedIndex] as TextBlock;
+                
+                if (label != null)
+                {
+                    label.Foreground = new SolidColorBrush(Colors.White);
+                }
             }
+            
 
             // TODO: animate label on screen if it is off screen
         }
 
         private void FlipView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            HighlightIndex();
+           
+                    HighlightIndex();
+       
         }
     }
 }
